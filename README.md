@@ -28,7 +28,7 @@ Ce projet est une application WinForms (.NET 10) connectée à une base de donn�
 ### Installation et exécution
 
 1. **Démarrer la base de données** :
-   Dans le dossier `partie-1`, créez un fichier `.env` si nécessaire avec les variables requises (par ex. `MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, etc.), puis montez les conteneurs :
+   Dans le dossier `partie-1`, montez les conteneurs (ajoutez un `.env` pour docker si nécessaire) :
 
    ```bash
    cd partie-1
@@ -37,7 +37,18 @@ Ce projet est une application WinForms (.NET 10) connectée à une base de donn�
 
    _La base de données sera disponible sur le port 3306 et PhpMyAdmin sera accessible sur `http://localhost:8080`._
 
-2. **Lancer l'application** :
+2. **Configuration de la base de données (BibliothequeApp)** :
+   Dans le dossier `partie-1/BibliothequeApp`, créez un fichier `.env` contenant les identifiants de votre base de données :
+
+   ```env
+   DB_SERVER=localhost
+   DB_PORT=3306
+   DB_DATABASE=bibliotheque
+   DB_USER=biblio_user
+   DB_PASSWORD=biblio_secret
+   ```
+
+3. **Lancer l'application** :
    ```bash
    cd BibliothequeApp
    dotnet run

@@ -10,7 +10,14 @@ namespace BibliothequeApp.Services
 
         private DatabaseService()
         {
-            _connectionString = "Server=localhost;Port=3306;Database=bibliotheque;User ID=biblio_user;Password=biblio_secret;";
+            DotNetEnv.Env.Load();
+            var server = Environment.GetEnvironmentVariable("DB_SERVER") ?? "localhost";
+            var port = Environment.GetEnvironmentVariable("DB_PORT") ?? "3306";
+            var database = Environment.GetEnvironmentVariable("DB_DATABASE") ?? "bibliotheque";
+            var user = Environment.GetEnvironmentVariable("DB_USER") ?? "biblio_user";
+            var password = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "biblio_secret";
+
+            _connectionString = $"Server={server};Port={port};Database={database};User ID={user};Password={password};";
         }
 
         public static DatabaseService Instance

@@ -51,7 +51,7 @@ CREATE TABLE livres (
     id_rayon            INT UNSIGNED        NOT NULL,
     id_etagere          INT UNSIGNED        NOT NULL,
     disponible          TINYINT(1)          NOT NULL DEFAULT 1,
-    couverture          LONGBLOB            NULL,
+    couverture          VARCHAR(255)        NULL,
     date_ajout          DATETIME            NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_livre_genre   FOREIGN KEY (id_genre)
         REFERENCES genres(id_genre)
@@ -140,13 +140,13 @@ INSERT INTO etageres (nom, id_rayon) VALUES
     ('Etagere 1', 2), ('Etagere 2', 2),
     ('Etagere 1', 3);
 
-INSERT INTO livres (titre, auteur, isbn, annee_publication, id_genre, id_rayon, id_etagere) VALUES
-    ('Le Petit Prince',          'Antoine de Saint-Exupery', '9782070612758', 1943, 6, 1, 1),
-    ('1984',                     'George Orwell',            '9782070368228', 1949, 2, 1, 2),
-    ('Dune',                     'Frank Herbert',            '9782221257074', 1965, 2, 2, 3),
-    ('Le Da Vinci Code',         'Dan Brown',                '9782709626091', 2003, 3, 2, 4),
-    ('Sapiens',                  'Yuval Noah Harari',        '9782226257017', 2011, 4, 3, 5),
-    ('Clean Code',               'Robert C. Martin',         '9780132350884', 2008, 7, 3, 5);
+INSERT INTO livres (titre, auteur, isbn, annee_publication, id_genre, id_rayon, id_etagere, couverture) VALUES
+    ('Le Petit Prince',  'Antoine de Saint-Exupery', '9782070612758', 1943, 6, 1, 1, 'Assets/images/le-petit-prince.jpg'),
+    ('1984',             'George Orwell',            '9782070368228', 1949, 2, 1, 2, 'Assets/images/1984.jpg'),
+    ('Dune',             'Frank Herbert',            '9782221257074', 1965, 2, 2, 3, 'Assets/images/dune.jpg'),
+    ('Le Da Vinci Code', 'Dan Brown',                '9782709626091', 2003, 3, 2, 4, 'Assets/images/da-vinci.jpg'),
+    ('Sapiens',          'Yuval Noah Harari',        '9782226257017', 2011, 4, 3, 5, 'Assets/images/sapiens.jpg'),
+    ('Clean Code',       'Robert C. Martin',         '9780132350884', 2008, 7, 3, 5, 'Assets/images/clean-code.jpg');
 
 INSERT INTO adherents (nom, prenom, email, telephone) VALUES
     ('Dupont', 'Marie',   'marie.dupont@email.com',  '0601020304'),

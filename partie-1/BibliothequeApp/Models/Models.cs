@@ -41,7 +41,7 @@ namespace BibliothequeApp.Models
         public int IdEtagere { get; set; }
         public string EtagereNom { get; set; } = string.Empty;
         public bool Disponible { get; set; } = true;
-        public byte[]? Couverture { get; set; }
+        public string? Couverture { get; set; }
         public DateTime DateAjout { get; set; }
     }
 

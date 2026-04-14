@@ -1,4 +1,5 @@
-partie-1/.env
+# .env
+*.env
 
 # C# / .NET
 bin/

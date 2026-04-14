@@ -1,1 +1,19 @@
 partie-1/.env
+
+# C# / .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+
+# IDE
+.vs/
+*.DotSettings.user
+
+# API keys
+appsettings.json
+favorites.json

@@ -28,7 +28,14 @@ Ce projet est une application WinForms (.NET 10) connectée à une base de donn�
 ### Installation et exécution
 
 1. **Démarrer la base de données** :
-   Dans le dossier `partie-1`, montez les conteneurs (ajoutez un `.env` pour docker si nécessaire) :
+   Dans le dossier `partie-1`, montez les conteneurs ajoutez un `.env` pour docker :
+
+   ```env
+   MYSQL_ROOT_PASSWORD=root_secret
+   MYSQL_DATABASE=bibliotheque
+   MYSQL_USER=biblio_user
+   MYSQL_PASSWORD=biblio_secret
+   ```
 
    ```bash
    cd partie-1

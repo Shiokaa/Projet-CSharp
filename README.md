@@ -93,3 +93,43 @@ Assurez-vous que la clé d'API est configurée dans le fichier `appsettings.json
 cd partie-2/MeteoApp
 dotnet run
 ```
+
+---
+
+## Exécution sous Linux (via Wine)
+
+Puisque les deux applications utilisent **Windows Forms** (`net10.0-windows` et `net8.0-windows`), elles ne peuvent pas être exécutées nativement via un simple `dotnet run` sous Linux. Vous devez utiliser **Wine** et compiler les applications de manière autonome (Self-Contained) pour inclure le runtime Windows.
+
+### Prérequis Linux
+
+- `wine` installé sur votre distribution.
+- Le SDK .NET correspondant installé sous Linux (pour pouvoir compiler).
+
+### Lancer la Partie 1 (BibliothequeApp) sous Linux
+
+1. **Démarrez la base de données** (comme indiqué dans la section Partie 1) :
+   ```bash
+   cd partie-1
+   docker-compose up -d
+   ```
+2. **Compilez l'application en version autonome pour Windows** :
+   ```bash
+   cd BibliothequeApp
+   dotnet publish -r win-x64 --self-contained true -p:PublishSingleFile=true
+   ```
+3. **Lancez l'exécutable avec Wine** :
+   ```bash
+   wine bin/Release/net10.0-windows/win-x64/publish/BibliothequeApp.exe
+   ```
+
+### Lancer la Partie 2 (MeteoApp) sous Linux
+
+1. **Compilez l'application en version autonome pour Windows** :
+   ```bash
+   cd partie-2/MeteoApp
+   dotnet publish -r win-x64 --self-contained true -p:PublishSingleFile=true
+   ```
+2. **Lancez l'exécutable avec Wine** :
+   ```bash
+   wine bin/Release/net8.0-windows/win-x64/publish/MeteoApp.exe
+   ```
